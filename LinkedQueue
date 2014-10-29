@@ -1,0 +1,99 @@
+//Student Name: Sharon McHugh Student Number
+public class LinkedQueue <T> implements Queue <T> {
+	
+	 private Node front = null;
+	 private Node rear = null;
+	 private int size = 0;
+
+	@Override
+public void enqueue(T value) {
+		// TODO Auto-generated method stub
+	  Node n = new Node(value);
+		   if (rear==null){
+			   front= n;
+		   }else{
+			   rear.next = n;
+
+	
+		   }
+		   rear = n;
+		   size++;
+	}
+
+	@Override
+	public T dequeue() {
+		// TODO Auto-generated method stub
+	    if (isEmpty() ) {
+		         throw new QueueEmptyException();
+		      }
+	    Node toReturn = front;
+	    front = front.next;
+	    if (front==null){
+	    	rear = null;
+	    }else{
+	    	toReturn.next = null;
+	    }
+	    size--;
+		      
+		      return toReturn.element;
+		   }
+	
+
+	@Override
+	public T front() {
+		// TODO Auto-generated method stub
+	      if ( isEmpty() ) {
+		         throw new QueueEmptyException();
+		      }
+		      return front.element;
+		   }
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+	      return size == 0;
+		   }
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+	    return size;
+		   }
+
+	   private class Node {
+		      T element;
+		      Node next;
+		      
+		      public Node(T value ) {
+		         element = value;
+		      }
+		   }
+	   
+	  public String toString() {
+	       
+		      String out = "[" + size + "]: ";
+		      Node n = front ;
+		  
+		      while ( n != null ) {
+		         out += "[ \"" + n.element + "\" ]-> ";
+		         n = n.next;
+		   
+		      }
+		      
+		      return out;
+		   }
+	   
+//This is Q2 from worksheet 6	   
+	public static void main(String[] args) {
+		LinkedQueue<String> s = new LinkedQueue<String>();
+
+		s.enqueue("A");
+		s.enqueue("P");
+		s.enqueue("E");
+		
+		
+		System.out.println(s.toString());
+
+	}
+
+}
