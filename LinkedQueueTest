@@ -1,0 +1,37 @@
+public class LinkedQueueTest {
+
+	public static void main(String[] args) {
+		LinkedQueue<Integer> s = new LinkedQueue<Integer>();
+
+		s.enqueue(10);
+		System.out.println(s.toString());
+		s.enqueue(5);
+		System.out.println(s.toString());
+		s.dequeue();
+		System.out.println(s.toString());
+		s.enqueue(15);
+		System.out.println(s.toString());
+		s.enqueue(3);
+		System.out.println(s.toString());
+		s.dequeue();
+		System.out.println(s.toString());
+		s.enqueue(7);
+		System.out.println(s.toString());
+		s.dequeue();
+		System.out.println(s.toString());
+		s.enqueue(20);
+		System.out.println(s.toString());
+		
+		
+		Integer sum = 0;
+		while (s.isEmpty() != true){
+			sum = sum + s.dequeue();
+			 
+			
+		}
+		System.out.println("Total: " + sum);
+		
+	}
+
+
+}
