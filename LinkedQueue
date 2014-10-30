@@ -1,4 +1,4 @@
-//Student Name: Sharon McHugh Student Number
+
 public class LinkedQueue <T> implements Queue <T> {
 	
 	 private Node front = null;
